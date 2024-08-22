@@ -29,7 +29,7 @@ include '../db.php';
     <!-- ======== Page title ============ -->
     <title>CarGo Care Hub - Transport & Logistics </title>
     <!-- ========== Favicon Icon ========== -->
-    <link rel="shortcut icon" href="../assets/img/logo1.png">
+    <link rel="shortcut icon" href="../logo/logo.png">
     <!-- ===========  All Stylesheet ================= -->
     <!--  Icon css plugins -->
     <link rel="stylesheet" href="../assets/css/icons.css">
@@ -131,7 +131,7 @@ include '../db.php';
                 <div class="col-lg-3 col-sm-5 col-md-4 col-6 pr-lg-5">
                     <div class="logo">
                         <a href="index.html">
-                        <img src="../assets/img/logo1.png"  alt="CarGo Care Hub">       
+                        <img src="../logo/logo.png"  alt="CarGo Care Hub">       
                         </a>
                     </div>
                 </div>
@@ -319,7 +319,7 @@ include '../db.php';
                                         </tr>
                                         <tr>
                                             <td><b>Address:</b></td>
-                                            <td> <?php echo $data['receiver_name'] ?> </td>
+                                            <td> <?php echo $data['receiver_address'] ?> </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -331,6 +331,21 @@ include '../db.php';
                     </div>
                     <table class="table table-striped table-bordered table-condensed">
                         <tbody>
+                            <tr>
+                                <td class="text-right"><b>Product Image </b></td>
+                                <td> <img src="./uploads/<?php echo $data['product_image'] ?>" width="100" alt="<?php echo $data['product_name'] ?>"> </td>
+                            </tr>
+                            <tr>
+                                <td class="text-right"><b>Product Name </b></td>
+                                <td> <?php echo $data['product_name'] ?> </td>
+                            </tr>
+
+                            <tr>
+                                <td class="text-right"><b>Percentage on Delivery </b></td>
+                                <td> <?php echo $data['percentage_on_delivery'] ?>% </td>
+                            </tr>
+
+
                             <tr>
                                 <td class="text-right"><b>Dispatch Location </b></td>
                                 <td> <?php echo $data['dispatch_location'] ?> </td>
@@ -346,7 +361,7 @@ include '../db.php';
                             </tr>
                             <tr>
                                 <td class="text-right"><b>Estimated Delivery Date </b></td>
-                                <td> <?php echo $data['dispatch_date'] ?> </td>
+                                <td> <?php echo $data['delivery_date'] ?> </td>
                             </tr>
                            
                             <tr>
@@ -397,7 +412,7 @@ include '../db.php';
                     <div class="col-sm-6 col-xl-3">
                         <div class="about-CarGo Care Hub pe-md-5 pe-xl-0">
                             <a href="index.html">
-                                <img src="../assets/img/logo1.png" alt="CarGo Care Hub">
+                                <img src="../logo/logo.png" alt="CarGo Care Hub">
                             </a>
                             <p style="color:white">CarGo Care Hub Logistics Services is a global supplier of transport and logistics solutions. We have offices in more than 20 countries and agents.</p>
                         </div>

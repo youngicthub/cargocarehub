@@ -5,6 +5,11 @@
 @define('DB_PASSWORD', 'cargocar_database');
 @define('DB_NAME', 'cargocar_database');
 
+// @define('DB_SERVER', 'localhost');
+// @define('DB_USERNAME', 'root');
+// @define('DB_PASSWORD', '');
+// @define('DB_NAME', 'cargocar_database');
+
 
 
  

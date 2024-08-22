@@ -18,6 +18,8 @@ include 'header.php';
 		     $dispatchh = $row['dispatch_date'];  
 		     $deliveryy = $row['delivery_date'];
          $current_loc = $row['current_location'];
+         $pn = $row['product_name'];
+         $pod = $row['percentage_on_delivery'];
 
 		}else{
 			echo "<script>window.location.href = 'dashboard.php'; </script>";
@@ -42,11 +44,13 @@ include 'header.php';
 	     $dispatch = text_input($_POST['dispatch']);  
 	     $delivery = text_input($_POST['delivery']);
        $current_lo = text_input($_POST['current_loc']);
+       $pn = text_input($_POST['pn']);  
+       $pod = text_input($_POST['pod']); 
 
-	     if (empty($sendersname) || empty($senderscontact) || empty($sendersmail) || empty($sendersaddress) || empty($receiversname) || empty($receiverscontact) || empty($receiversmail) || empty($receiversaddress) || empty($status) || empty($dispatchl) || empty($dispatch) || empty($delivery) ) {
+	     if (empty($sendersname) || empty($senderscontact) || empty($sendersmail) || empty($sendersaddress) || empty($receiversname) || empty($receiverscontact) || empty($receiversmail) || empty($receiversaddress) || empty($status) || empty($dispatchl) || empty($dispatch) || empty($delivery) || empty($pn) || empty($pod)) {
 	       echo "<script>alert('Check !!! Some fields are empty')</script>";
 	     }else{
-	     	 $update = mysqli_query($link, "UPDATE tracking SET sender_name = '$sendersname', sender_contact = '$senderscontact', sender_email = '$sendersmail', sender_address = '$sendersaddress', status = '$status', dispatch_location = '$dispatchl', receiver_email = '$receiversmail', receiver_name = '$receiversname', receiver_contact = '$receiverscontact', receiver_address = '$receiversaddress', dispatch_date = '$dispatch', delivery_date = '$delivery', current_location = '$current_lo' WHERE tracking_number = '$tnumbs' ");
+	     	 $update = mysqli_query($link, "UPDATE tracking SET sender_name = '$sendersname', sender_contact = '$senderscontact', sender_email = '$sendersmail', sender_address = '$sendersaddress', status = '$status', dispatch_location = '$dispatchl', receiver_email = '$receiversmail', receiver_name = '$receiversname', receiver_contact = '$receiverscontact', receiver_address = '$receiversaddress', dispatch_date = '$dispatch', delivery_date = '$delivery', current_location = '$current_lo', product_name = '$pn', percentage_on_delivery = '$pod' WHERE tracking_number = '$tnumbs' ");
 	     	 echo "<script>
             alert('Updated Successfully');
 	           window.location.href = 'edit-tracking.php?num=$tnumbs';
@@ -110,6 +114,15 @@ include 'header.php';
               	<option value="Delivered">Delivered</option>
               	<option value="On hold">On hold</option>
               </select>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputConfirmPassword1">Product Name</label>
+              <input type="text" class="form-control" placeholder="Product Name" name="pn" value="<?php echo $pn ?>">
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputConfirmPassword1">Percentage on delivery</label>
+              <input type="number" class="form-control" placeholder="Percentage on delivery" name="pod" value="<?php echo $pod ?>">
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Dispatch Location</label>
